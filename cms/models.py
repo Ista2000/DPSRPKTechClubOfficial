@@ -14,25 +14,32 @@ class Tags(models.Model):
 class Contest(models.Model):
     RANK_TYPE = (('IOI', 'IOI'), ('ICPC', 'ICPC'), ('LONG', 'Long Challenge'), ('CF', 'Codeforces'))
 
+    code = models.CharField(_('contest code'), max_length=15, default='')
     name = models.CharField(_('name'), max_length=50, default='')
-    registered_users = models.ManyToManyField(CustomUser, related_name='registered_users')
+    registered_users = models.ManyToManyField(CustomUser, related_name='registered_users', default=[])
     rank_type = models.CharField(_('ranking type'), max_length=4, choices=RANK_TYPE)
 
+    def get_registerers(self):
+        return ', '.join([users.username for users in self.registered_users.all()])
+
     def __str__(self):
-        return str(self.pk)
+        return self.name
 
 
 class Problem(models.Model):
     contest = models.ForeignKey(Contest, on_delete=models.CASCADE, related_name='contest')
-    tags = models.ManyToManyField(Tags, related_name='tags')
-    userssolved = models.ManyToManyField(CustomUser, related_name='userssolved')
+    tags = models.ManyToManyField(Tags, related_name='tags', default=[])
+    userssolved = models.ManyToManyField(CustomUser, related_name='userssolved', default=[])
     author = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, related_name='author')
     solved = models.IntegerField(_('solved by'), default=0)
     solved_global = models.IntegerField(_('solved by(globally)'), default=0)
-    code = models.CharField(_('problem code'), max_length=10)
+    code = models.CharField(_('problem code'), max_length=10, default='')
     timelimit = models.IntegerField(_('time limit'), default=1)
     statement = models.FileField(_('problem statement'), default='')
     score = models.IntegerField(_('maximum score'), default=100)
+
+    def get_tags(self):
+        return ', '.join([tag.name for tag in self.tags.all()])
 
     def __str__(self):
         return self.code
