@@ -124,7 +124,14 @@ USE_TZ = True
 
 STATIC_URL = os.path.join(BASE_DIR, 'static')
 
+# Custom User Model Stuff
+
 AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# Media files (Uploaded files like images and submissions)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
