@@ -4,17 +4,16 @@ from .models import CustomUser
 
 
 class CustomUserCreationForm(UserCreationForm):
-    # password = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'first_name', 'last_name', 'userclass', 'usersection', 'cchandle', 'cfhandle',
-                  'phno', 'dept1', 'dept2']
+        fields = ['username', 'email', 'first_name', 'middle_name', 'last_name', 'userclass', 'usersection', 'cchandle',
+                  'cfhandle', 'kagglehandle', 'phno', 'dept1', 'dept2', 'profilepic']
 
 
 class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'first_name', 'last_name', 'userclass', 'usersection', 'cchandle', 'cfhandle',
-                  'phno', 'dept1', 'dept2']
+        fields = ['username', 'email', 'first_name', 'middle_name', 'last_name', 'userclass', 'usersection', 'cchandle',
+                  'cfhandle', 'kagglehandle', 'phno', 'dept1', 'dept2', 'profilepic']

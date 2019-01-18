@@ -1,0 +1,24 @@
+{% extends sidebar %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <p class="col-md-offset-1 col-sm-offset-1">Hi {{ user.username }}</p>
+        <p class="col-md-offset-1 col-sm-offset-1"><a href="{% url 'logout' %}">Log out</a></p>
+    {% else %}
+        <div class="home-container col-md-offset-2 col-sm-offset-2 col-md-7 col-sm-7">
+            <div class="container">
+                <div class="head-text">
+                    Become a Member Today
+                </div>
+                <div class="note-text">
+                    Note that only students of Delhi Public School Ruby Park may apply to be members.
+                </div>
+                <a href="{% url 'register' %}">
+                    <div class="register col-md-6 col-sm-6">
+                        Register
+                    </div>
+                </a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

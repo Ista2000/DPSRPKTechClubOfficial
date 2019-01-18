@@ -1,0 +1,381 @@
+.sidebar {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  min-height: 100vh;
+  background-color: #444444;
+  position: fixed;
+  z-index: 10;
+}
+.espace {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  min-height: 100vh;
+  position: fixed;
+  opacity: 0;
+  z-index: 1;
+  background-color: #00ff92;
+}
+.social {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  min-height: 100vh;
+  position: fixed;
+  opacity: 0;
+  z-index: 1;
+  background-color: #777777;
+}
+.hamburger {
+  top: 50vh;
+  left: calc(((100vw / 15.0) - 30px)/2);
+  position: relative;
+}
+
+.toggle {
+  display: block;
+  cursor: pointer;
+}
+.toggle input {
+  display: none;
+}
+.toggle input + div {
+  width: 30px;
+  height: 24px;
+  position: relative;
+}
+.toggle input + div div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: -webkit-transform .5s ease;
+  transition: transform .5s ease, -webkit-transform .5s ease;
+}
+.toggle input + div div span {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.toggle input + div div span:first-child {
+  top: 0;
+}
+.toggle input + div div span:first-child:before, .toggle input + div div span:first-child:after {
+  top: 0;
+}
+.toggle input + div div span:last-child {
+  bottom: 0;
+}
+.toggle input + div div span:last-child:before, .toggle input + div div span:last-child:after {
+  bottom: 0;
+}
+.toggle input + div div span:before, .toggle input + div div span:after {
+  content: '';
+  display: block;
+  width: 53%;
+  height: 2px;
+  border-radius: 1px;
+  background: #00ff92;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  transition: border-radius .3s ease, -webkit-transform .5s ease;
+  transition: transform .5s ease, border-radius .3s ease;
+  transition: transform .5s ease, border-radius .3s ease, -webkit-transform .5s ease;
+}
+.toggle input + div div span:before {
+  left: 0;
+  -webkit-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+  -webkit-transform: translate(1px, 0) scaleX(1.1);
+          transform: translate(1px, 0) scaleX(1.1);
+}
+.toggle input + div div span:after {
+  right: 0;
+  -webkit-transform-origin: 100% 50%;
+          transform-origin: 100% 50%;
+  -webkit-transform: translate(-1px, 0) scaleX(1.1);
+          transform: translate(-1px, 0) scaleX(1.1);
+}
+.toggle input + div svg {
+  display: block;
+  fill: none;
+  stroke: #00ff92;
+  stroke-width: 2px;
+  width: 45px;
+  height: 44px;
+  stroke-linecap: round;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -22px 0 0 -22px;
+  stroke-dasharray: 0 82.801 8 82.801;
+  stroke-dashoffset: 82.801;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  transition: stroke-dashoffset .5s ease, stroke-dasharray .6s ease, -webkit-transform .5s ease;
+  transition: stroke-dashoffset .5s ease, stroke-dasharray .6s ease, transform .5s ease;
+  transition: stroke-dashoffset .5s ease, stroke-dasharray .6s ease, transform .5s ease, -webkit-transform .5s ease;
+}
+.toggle input + div svg:nth-child(3) {
+  -webkit-transform: rotate(180deg) scale(1.5);
+          transform: rotate(180deg) scale(1.5);
+}
+.toggle input:checked + div div {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.toggle input:checked + div div span:first-child:before {
+  -webkit-transform: rotate(45deg) translate(2.2px, -3px) scaleX(1);
+          transform: rotate(45deg) translate(2.2px, -3px) scaleX(1);
+}
+.toggle input:checked + div div span:first-child:after {
+  -webkit-transform: rotate(-45deg) translate(-2.2px, -3px) scaleX(1);
+          transform: rotate(-45deg) translate(-2.2px, -3px) scaleX(1);
+}
+.toggle input:checked + div div span:last-child:before {
+  -webkit-transform: rotate(-45deg) translate(2.2px, 3px) scaleX(1);
+          transform: rotate(-45deg) translate(2.2px, 3px) scaleX(1);
+}
+.toggle input:checked + div div span:last-child:after {
+  -webkit-transform: rotate(45deg) translate(-2.2px, 3px) scaleX(1);
+          transform: rotate(45deg) translate(-2.2px, 3px) scaleX(1);
+}
+.toggle input:checked + div svg {
+  stroke-dashoffset: 62;
+  stroke-dasharray: 0 82.801 62 82.801;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.toggle input:checked + div svg:nth-child(3) {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: inherit;
+}
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  color: #fff;
+  background: #000;
+  font-family: Lato;
+}
+
+input, option, button {
+  color: #000;
+}
+
+.open {
+  width: 100vw;
+}
+
+.home-container {
+  height: 100vh;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.home-container div {
+  flex: 0 1 100%;
+}
+
+.head-text {
+  background-color: transparent;
+  font-size: 64px;
+}
+
+.note-text {
+  background-color: transparent;
+  color: #888888;
+}
+
+.register {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  display: flex;
+  margin-top: 24px;
+  background-color: transparent;
+  border: 1px solid #00ff92;
+  border-radius: 4px;
+  font-size: 24px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+}
+
+a:link, a:hover, a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+.register:hover {
+  box-shadow: -5px 5px 5px #00ff92;
+}
+
+.background {
+  background: url("/static/images/registration-background.jpg");
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: -100;
+}
+
+.background-overlay {
+  background: #000;
+  opacity: 0.60;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: -50;
+}
+
+.form-container {
+  background: #222;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  padding: 30px;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+label {
+  display: block;
+  font-weight: lighter;
+}
+
+input, select {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color: transparent;
+  border: 0.5px solid #00ff92;
+  color: #fff;
+  height: 5.5vh;
+  width: 100%;
+  padding: 8px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 4px 4px #00ff92;
+  color: #fff;
+}
+option {
+  color: #fff;
+}
+.form-container div, .form-container button {
+  display: inline-block;
+
+  flex-grow: 1;
+  margin: 10px;
+}
+.form-container h2 {
+  width: 100%;
+  font-weight: lighter;
+}
+.id_username {
+  width: 45%;
+}
+.id_email {
+  width: 45%;
+}
+.id_first_name {
+  width: 100%;
+}
+.id_last_name {
+  width: 100%;
+}
+.id_middle_name {
+  width: 100%;
+}
+.id_userclass {
+  width: 45%;
+}
+.id_usersection {
+  width: 45%;
+}
+
+.id_cchandle {
+  width: 20%;
+}
+.id_cfhandle {
+  width: 20%;
+}
+.id_kagglehandle {
+  width: 20%;
+}
+.id_phno {
+  width: 100%;
+}
+.id_dept1 {
+  width: 45%;
+}
+.id_dept2 {
+  width: 45%;
+}
+.id_profilepic {
+  width: 100%;
+}
+.id_password1 {
+  width: 100%;
+}
+.id_password2 {
+  width: 100%;
+}
+input {
+  width: 100%;
+}
+.errorlist {
+  color: red;
+}
+.submitbtn {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color: transparent;
+  border: 0.5px solid #00ff92;
+  color: #fff;
+  height: 5.5vh;
+  width: 50%;
+  padding: 8px;
+  box-shadow: 4px 4px 4px #00ff92;
+  flex-grow: 0;
+}
+.submitbtn:hover {
+  outline: none;
+  color: #000;
+  background-color: #00ff92;
+}

@@ -1,0 +1,13 @@
+{% extends 'base_sidebar_visitor.html' %}
+{% load bootstrap3 %}
+
+{% block body %}
+<form method="post">
+    <div class="col-md-offset-3 col-sm-offset-3 col-md-7 col-sm-7">
+        <h2>Login</h2>
+        {% csrf_token %}
+        {% bootstrap_form form show_help=False %}
+        {% bootstrap_button "Login" button_type="submit" button_class="btn-default" %}
+    </div>
+</form>
+{% endblock %}
