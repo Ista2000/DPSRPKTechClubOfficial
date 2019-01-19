@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% block head %}{% endblock %}
-
+{% load static %}
 {% block sidebar %}
     <div class="sidebar col-md-1 col-sm-1">
+        <div class="logo col-md-12 col-sm-12 col-xs-12">
+            <img src="{% static 'images/favicon-inverted.png' %}" />
+        </div>
         <div class="hamburger">
           <label class="toggle">
               <input type="checkbox">

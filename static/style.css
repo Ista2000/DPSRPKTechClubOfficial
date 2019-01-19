@@ -5,9 +5,10 @@
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   min-height: 100vh;
-  background-color: #444444;
+  background-color: #000;
   position: fixed;
   z-index: 10;
+  padding-top: 20px;
 }
 .espace {
   -webkit-transition: all 0.5s ease;
@@ -249,7 +250,7 @@ a:link, a:hover, a:visited {
 
 .background-overlay {
   background: #000;
-  opacity: 0.60;
+  opacity: 0.75;
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -265,6 +266,8 @@ a:link, a:hover, a:visited {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  min-height: 90vh;
+  /*align-items: center;*/
 }
 
 label {
@@ -353,11 +356,22 @@ option {
 .id_password2 {
   width: 100%;
 }
+.id_password {
+  width: 100%;
+}
 input {
   width: 100%;
 }
 .errorlist {
   color: red;
+  list-style: none;
+  padding: 5px;
+}
+.nonfield {
+  background-color: pink;
+  border: 1px solid red;
+  border-radius: 3px;
+  text-align: justify-all;
 }
 .submitbtn {
   -webkit-transition: all 0.5s ease;
@@ -378,4 +392,40 @@ input {
   outline: none;
   color: #000;
   background-color: #00ff92;
+}
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: -100;
+}
+img {
+  height: 100%;
+  width: 100%;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.logo {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color: red;
+}
+.hide {
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }

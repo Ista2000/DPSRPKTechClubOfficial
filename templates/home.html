@@ -1,10 +1,14 @@
 {% extends sidebar %}
-
+{% load static %}
 {% block body %}
     {% if user.is_authenticated %}
         <p class="col-md-offset-1 col-sm-offset-1">Hi {{ user.username }}</p>
         <p class="col-md-offset-1 col-sm-offset-1"><a href="{% url 'logout' %}">Log out</a></p>
     {% else %}
+        <video autoplay muted loop id="myVideo">
+            <source src="{% static 'images/herovid2.mp4' %}" type="video/mp4">
+        </video>
+        <div class="background-overlay"></div>
         <div class="home-container col-md-offset-2 col-sm-offset-2 col-md-7 col-sm-7">
             <div class="container">
                 <div class="head-text">

@@ -19,10 +19,3 @@ def home(request):
     else:
         context['sidebar'] = 'base_sidebar_visitor.html'
     return render(request, 'home.html', context)
-
-
-# def register(request):
-#     form = UserForm(request.POST or None)
-#     if form.is_valid():
-#         user = form.save(commit=False)
-

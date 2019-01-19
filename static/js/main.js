@@ -9,6 +9,7 @@ $(document).ready(function () {
             $("div.social").removeClass("col-md-1").removeClass("col-sm-1")
                 .removeClass("col-md-offset-8").removeClass("col-sm-offset-8")
                 .removeClass("col-lg-offset-8").removeClass("col-lg-8").css("opacity", 0);
+            $(".logo").removeClass('hide');
         } else {
             $("div.sidebar").removeClass("col-md-1").removeClass("col-sm-1").addClass("col-md-8").addClass("col-sm-8");
             $("div.espace").addClass("col-md-3").addClass("col-sm-3")
@@ -17,6 +18,7 @@ $(document).ready(function () {
             $("div.social").addClass("col-md-1").addClass("col-sm-1")
                 .addClass("col-md-offset-8").addClass("col-sm-offset-8")
                 .addClass("col-lg-offset-8").addClass("col-lg-1").css("opacity", 1);
+            $(".logo").addClass("hide");
         }
     });
 });

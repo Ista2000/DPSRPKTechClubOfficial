@@ -2,12 +2,23 @@
 {% load bootstrap3 %}
 
 {% block body %}
-<form method="post">
-    <div class="col-md-offset-3 col-sm-offset-3 col-md-7 col-sm-7">
-        <h2>Login</h2>
-        {% csrf_token %}
-        {% bootstrap_form form show_help=False %}
-        {% bootstrap_button "Login" button_type="submit" button_class="btn-default" %}
+<div class="background"></div>
+<div class="background-overlay"></div>
+<form  role="form" action="" method="post" autocomplete="off">
+    <div class="form-container col-md-offset-4 col-sm-offset-4 col-md-5 col-sm-5">
+        <div style="height: 50vh;display: flex;justify-content: space-between; flex-wrap: wrap">
+            <h2 align="center">Login</h2>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for field in form %}
+            <div class="{{ field.id_for_label }}">
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.errors }}
+            </div>
+            {% endfor %}
+            <button name="register" type="submit" class="submitbtn">Login</button>
+        </div>
     </div>
 </form>
 {% endblock %}
