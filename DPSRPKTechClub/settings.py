@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'pads.apps.PadsConfig',
     'teach.apps.TeachConfig',
+    'compiler.apps.CompilerConfig',
 ]
 
 MIDDLEWARE = [

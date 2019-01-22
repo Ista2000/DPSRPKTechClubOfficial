@@ -1,10 +1,98 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Pad</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js"></script>
+    <title>PAD DEMO</title>
+<style type="text/css" media="screen">
+    #editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    .hselect {
+        position: absolute;
+        background-color: #00ff92;
+        opacity: 0.4;
+        z-index: 40;
+        /*min-width: 2px !important;*/
+    }
+    .hcursor {
+        position: absolute;
+        background-color: #00ff92;
+        {#opacity: 1;#}
+        z-index: 40;
+        width: 2px !important;
+    }
+</style>
 </head>
 <body>
-{{ pad_hash }}
+
+<div id="editor">{{ in_code }}</div>
+<script>
+    let padHash = "{{ pad_hash }}";
+
+    let padSocket = new WebSocket(
+        'ws://' + window.location.host +
+        '/ws/pad/' + padHash + '/');
+
+    let Range = require('ace/range').Range;
+    let editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/javascript");
+    editor.$blockScrolling = Infinity;
+    let id = 0;
+
+    padSocket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly');
+    };
+
+    padSocket.onmessage = function(e) {
+        let data = JSON.parse(e.data);
+        let code = data['code'];
+        let selection = data['selection'];
+        let user = data['user'];
+        if(user == "{{ user.username }}")
+            return;
+        {#console.log(user);#}
+        {#console.log(selection.start);#}
+        {#console.log(selection.end);#}
+        let x = selection;
+        editor.session.removeMarker(id);
+        {#if(x.start.row === x.end.row && x.start.column+1 === x.end.column)#}
+            id = editor.session.addMarker(new Range(x.start.row, x.start.column+1, x.start.row, x.start.column+2), "hcursor", "text", true);
+        let temp = editor.getCursorPosition();
+        editor.setValue(code);
+        editor.clearSelection();
+        editor.selection.moveTo(temp.row, temp.column);
+    };
+
+    editor.on('change', function () {
+        if (editor.curOp && editor.curOp.command.name) {
+            let code = editor.getValue();
+            let selection = editor.getSelectionRange();
+            let user = "{{ user.username }}";
+            padSocket.send(JSON.stringify({
+                'code': code,
+                'selection': selection,
+                'user': user
+            }));
+        }
+    });
+
+    editor.on('blur', function() {
+        let code = editor.getValue();
+        let selection = editor.getSelectionRange();
+        selection.end.column -= 1;
+        let user = "{{ user.username }}";
+        padSocket.send(JSON.stringify({
+            'code': code,
+            'selection': selection,
+            'user': user
+        }));
+    });
+</script>
 </body>
 </html>
