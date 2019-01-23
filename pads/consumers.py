@@ -37,7 +37,6 @@ class PadConsumer(AsyncWebsocketConsumer):
         await sync_to_async(self.open_file)()
         await sync_to_async(self.write_file)(code)
         await sync_to_async(self.file_close)()
-        await sync_to_async(print)("WROTE: "+code)
 
         # Send message to room group
         await self.channel_layer.group_send(
