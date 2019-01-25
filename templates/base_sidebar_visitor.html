@@ -3,9 +3,6 @@
 {% load static %}
 {% block sidebar %}
     <div class="sidebar col-md-1 col-sm-1">
-        <div class="logo col-md-12 col-sm-12 col-xs-12">
-            <img src="{% static 'images/favicon-inverted.png' %}" />
-        </div>
         <div class="hamburger">
           <label class="toggle">
               <input type="checkbox">
@@ -29,8 +26,37 @@
               </symbol>
           </svg>
         </div>
+        <div class="sidebar-container">
+            <div class="sidebar-banner">DPS Ruby Park Tech Club</div>
+            <form class="sidebar-search" role="search" method="get" action="">
+                <div class="form-group">
+                    <input type="text" name="q" value="{{ request.GET.q }}" autocomplete="off">
+                </div>
+                <button type="submit" class="submitbtn">Search</button>
+            </form>
+            <div id="sidebar-content-container">
+                <ul class="sidebar-list">
+                    <li><a id="about" href="google.com">About</a></li>
+                    <li><a id="departments" href="google.com">Departments</a></li>
+                    <li><a id="logique" href="google.com">Logique</a></li>
+                    <li><a id="events" href="google.com">Events</a></li>
+                    <li><a id="gallery" href="google.com">Gallery</a></li>
+                    <li><a id="projects" href="google.com">Projects</a></li>
+                </ul>
+                <div id="sidebar-menu"></div>
+            </div>
+            <div>
+                <p id="sidebar-login"><a href="{% url 'login' %}">Login</a> to access more features</p>
+                <p id="sidebar-register">Don't have an account? <a href="{% url 'register' %}">Create one.</a></p>
+            </div>
+        </div>
     </div>
-    <div class="social"></div>
+    <div class="social">
+        <a href="#" class="twitter"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href="#" class="facebook"><i class="fa fa-facebook fa-2x"></i></a>
+        <a href="#" class="googleplus"><i class="fa fa-google-plus fa-2x"></i></a>
+        <a href="#" class="github"><i class="fa fa-github fa-2x"></i></a>
+        <a href="#" class="instagram"><i class="fa fa-instagram fa-2x"></i></a></div>
     <div class="espace"></div>
 {% endblock %}
 {%block body %}{% endblock %}

@@ -3,26 +3,35 @@
 {% block body %}
     {% if user.is_authenticated %}
         <p class="col-md-offset-1 col-sm-offset-1">Hi {{ user.username }}</p>
-        <p class="col-md-offset-1 col-sm-offset-1"><a href="{% url 'logout' %}">Log out</a></p>
     {% else %}
         <video autoplay muted loop id="myVideo">
             <source src="{% static 'images/herovid2.mp4' %}" type="video/mp4">
         </video>
         <div class="background-overlay"></div>
-        <div class="home-container col-md-offset-2 col-sm-offset-2 col-md-7 col-sm-7">
-            <div class="container">
-                <div class="head-text">
-                    Become a Member Today
-                </div>
-                <div class="note-text">
-                    Note that only students of Delhi Public School Ruby Park may apply to be members.
-                </div>
-                <a href="{% url 'register' %}">
-                    <div class="register col-md-6 col-sm-6">
-                        Register
+        <div class="home-container">
+            <div class="container col-md-offset-2 col-sm-offset-2 col-md-7 col-sm-7">
+                <div class="pg1-content-container">
+                    <div class="head-text">
+                        Become a Member Today
                     </div>
-                </a>
+                    <div class="note-text">
+                        Note that only students of Delhi Public School Ruby Park may apply to be members.
+                    </div>
+                    <a href="{% url 'register' %}">
+                        <div class="register col-md-6 col-sm-6">
+                            Register
+                        </div>
+                    </a>
+                </div>
             </div>
+            <div class="container">
+                <div class="next">
+                    <a id="cp" href="">Competitive Programming</a>
+                    <a id="dev" href="">Development and Creative</a>
+                    <a id="rob" href="">Robotics</a>
+                </div>
+            </div>
+            <div class="container">{% include 'footer.html' %}</div>
         </div>
     {% endif %}
 {% endblock %}

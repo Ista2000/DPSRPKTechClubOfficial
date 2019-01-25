@@ -118,3 +118,4 @@ dmypy.json
 migrations/
 media/
 padcontent/
+emailinfo.py

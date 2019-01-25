@@ -5,10 +5,13 @@
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   min-height: 100vh;
-  background-color: #000;
+  background-color: transparent;
   position: fixed;
   z-index: 10;
-  padding-top: 20px;
+  font-size: 80pt;
+  color: white;
+  display: flex;
+  flex-direction: column;
 }
 .espace {
   -webkit-transition: all 0.5s ease;
@@ -20,24 +23,15 @@
   position: fixed;
   opacity: 0;
   z-index: 1;
-  background-color: #00ff92;
-}
-.social {
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  min-height: 100vh;
-  position: fixed;
-  opacity: 0;
-  z-index: 1;
-  background-color: #777777;
+  background: url(/static/images/sidebar-espace-bg.jpg) no-repeat;
+  background-size: cover;
 }
 .hamburger {
   top: 50vh;
   left: calc(((100vw / 15.0) - 30px)/2);
+  width: 30px;
   position: relative;
+  z-index: 50;
 }
 
 .toggle {
@@ -181,6 +175,7 @@ body {
   color: #fff;
   background: #000;
   font-family: Lato;
+  font-weight: lighter;
 }
 
 input, option, button {
@@ -192,7 +187,7 @@ input, option, button {
 }
 
 .home-container {
-  height: 100vh;
+  /*height: 100vh;*/
   background-color: transparent;
   display: flex;
   flex-direction: row;
@@ -200,10 +195,66 @@ input, option, button {
   align-items: center;
 }
 
-.home-container div {
+.home-container > div{
   flex: 0 1 100%;
+  height: 100vh;
 }
 
+.container > div {
+  flex: 0 1 100%;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0;
+}
+.next {
+  background: url("/static/images/registration-background.jpg");
+  left: 0;
+  position: absolute;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.next > a {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  flex: 1;
+  color: #FFF;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 24pt;
+  display: table-cell;
+  line-height: 100vh;
+  text-wrap: wrap;
+}
+#cp {
+  background-color: rgba(153,51,51,0.6);
+}
+#dev {
+  background-color: rgba(56,117,215,0.6);
+}
+#rob {
+  background-color: rgba(245,221,93, 0.6);
+}
+#cp:hover {
+  background-color: rgba(0,0,0, 0.6);
+}
+#dev:hover {
+  background-color: rgba(0,0,0, 0.7);
+}
+#rob:hover {
+  background-color: rgba(0,0,0, 0.6);
+}
 .head-text {
   background-color: transparent;
   font-size: 64px;
@@ -411,7 +462,7 @@ img {
   transition: all 0.5s ease;
 }
 .logo {
-  position: relative;
+  position: fixed;
   height: 100px;
   width: 100px;
   -webkit-transition: all 0.5s ease;
@@ -419,13 +470,186 @@ img {
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  top: 30px;
+  right: 30px;
+  z-index: 999;
   /*background-color: red;*/
 }
-.hide {
-  opacity: 0;
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #00ff92;
+  border-radius: 5px;
+}
+::selection {
+  color: #5897fb;
+}
+footer {
+  position: relative;
+  background-color: #000;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-container {
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  height: 100vh;
+  opacity: 0;
+  z-index: 49;
+  display: flex;
+  position: relative;
+  font-size: 16pt;
+  align-self: flex-start;
+  margin-left: 12vw;
+  flex-direction: column;
+  right: 25vw;
+  width: 35vw;
+  align-items: stretch;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+}
+#sidebar-content-container {
+  display: flex;
+}
+.sidebar-list {
+  list-style: none;
+  padding: 5px;
+  width: auto;
+  flex: 1;
+  line-height: 32pt;
+}
+#sidebar-menu {
+  flex: 2;
+}
+.sidebar-list > li {
+  position: relative;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.sidebar-list > li > a{
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  position: relative;
+  left: 0;
+}
+.sidebar-list > li > .hover {
+  left: 20px;
+  color: #00ff92;
+}
+.sidebar-search {
+  font-size: 12pt;
+}
+.sidebar-banner {
+  font-size: 36pt;
+}
+#sidebar-login, #sidebar-register {
+  font-size: 12pt;
+  height: 15px;
+}
+#sidebar-register a:hover, #sidebar-login .hover {
+  color: #5897fb;
+}
+#sidebar-register a, #sidebar-login a {
+  color: #00ff92;
+}
+
+#sidebar-menu a {
+  color: #00ff92;
+}
+#sidebar-menu a:hover {
+  color: #fff;
+  left: 20px;
+}
+.social {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  position: fixed;
+  opacity: 0;
+  z-index: 1;
+  background-color: #aaa;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding: 20px;
+}
+/* Button Styles */
+.social a {
+  /*display: block;*/
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  height: 80px;
+  width: 100%;
+  line-height: 50px;
+  border: 1px solid rgba(0,0,0,.3);
+  color: rgba(0,0,0,.3);
+  margin: 10px 0;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*.social a i {*/
+/*margin-right: 15px;*/
+/*}*/
+
+.social a:hover  {
+border: 1px solid rgba(0, 0, 0,.7);
+color: rgba(0, 0, 0, 1);
+}
+
+/* Hover background colors */
+.color-twitter {
+  background-color: #00aced !important;
+}
+.color-facebook {
+  background-color: #3b5998 !important;
+}
+.color-github {
+  background-color: #555 !important;
+}
+.color-googleplus {
+  background-color: #dd4b39 !important;
+}
+.color-instagram {
+  background-color: #ff1372 !important;
+}
+
+.color-twitter,
+.color-facebook,
+.color-pinterest,
+.color-googleplus,
+.color-dribbble,
+.color-instagram {
+  -webkit-transition: all .2s ease-in;
+  -moz-transition: all .2s ease-in;
+  -ms-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  transition: all .2s ease-in;
 }

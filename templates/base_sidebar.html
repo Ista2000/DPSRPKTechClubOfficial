@@ -1,29 +1,62 @@
 {% extends 'base.html' %}
 {% block head %}{% endblock %}
-
+{% load static %}
 {% block sidebar %}
-<div class="hamburger">
-  <label class="toggle">
-      <input type="checkbox">
-      <div>
-          <div>
-              <span></span>
-              <span></span>
-          </div>
-          <svg>
-              <use xlink:href="#path"></use>
-          </svg>
-          <svg>
-              <use xlink:href="#path"></use>
-          </svg>
-      </div>
-  </label>
+    <div class="sidebar col-md-1 col-sm-1">
+        <div class="hamburger">
+          <label class="toggle">
+              <input type="checkbox">
+              <div>
+                  <div>
+                      <span></span>
+                      <span></span>
+                  </div>
+                  <svg>
+                      <use xlink:href="#path"></use>
+                  </svg>
+                  <svg>
+                      <use xlink:href="#path"></use>
+                  </svg>
+              </div>
+          </label>
 
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-      <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" id="path">
-          <path d="M22,22 L2,22 C2,11 11,2 22,2 C33,2 42,11 42,22"></path>
-      </symbol>
-  </svg>
-</div>
+          <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" id="path">
+                  <path d="M22,22 L2,22 C2,11 11,2 22,2 C33,2 42,11 42,22"></path>
+              </symbol>
+          </svg>
+        </div>
+        <div class="sidebar-container">
+            <div class="sidebar-banner">DPS Ruby Park Tech Club</div>
+            <form class="sidebar-search" role="search" method="get" action="">
+                <div class="form-group">
+                    <input type="text" name="q" value="{{ request.GET.q }}" autocomplete="off">
+                </div>
+                <button type="submit" class="submitbtn">Search</button>
+            </form>
+            <div id="sidebar-content-container">
+                <ul class="sidebar-list">
+                    <li><a id="about" href="google.com">About</a></li>
+                    <li><a id="departments" href="google.com">Departments</a></li>
+                    <li><a id="logique" href="google.com">Logique</a></li>
+                    <li><a id="events" href="google.com">Events</a></li>
+                    <li><a id="gallery" href="google.com">Gallery</a></li>
+                    <li><a id="projects" href="google.com">Projects</a></li>
+                </ul>
+                <div id="sidebar-menu"></div>
+            </div>
+            <div>
+                <p id="sidebar-login">Hi, <a href="#">{{ user.first_name }} {{ user.last_name }}({{ user.username }}), </a>
+                    you can visit your <a href="#">Dashboard</a> or <a href="{% url 'logout' %}">log out</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="social col-md-offset-1 col-sm-offset-1">
+        <a href="#" class="twitter"><i class="fa fa-twitter fa-2x"></i></a>
+        <a href="#" class="facebook"><i class="fa fa-facebook fa-2x"></i></a>
+        <a href="#" class="googleplus"><i class="fa fa-google-plus fa-2x"></i></a>
+        <a href="#" class="github"><i class="fa fa-github fa-2x"></i></a>
+        <a href="#" class="instagram"><i class="fa fa-instagram fa-2x"></i></a></div>
+    <div class="espace"></div>
 {% endblock %}
 {%block body %}{% endblock %}

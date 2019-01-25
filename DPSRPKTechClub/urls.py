@@ -16,13 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
+from .settings import DEBUG, MEDIA_URL, MEDIA_ROOT
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', include('users.urls'), name='home'),
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls, name='admin'),
     path('users/', include('users.urls'), name='users'),
     path('users/', include('django.contrib.auth.urls')),
     path('pads/', include('pads.urls'), name='pads'),
-    path('chat/', include('chat.urls'), name='chat')
+    path('chat/', include('chat.urls'), name='chat'),
     # path('blog/', include('blog.urls')),
 ]
+
+if DEBUG is True:
+    urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)
