@@ -1,1 +1,1 @@
-web: gunicorn DPSRPKTechClub.wsgipip
+web: gunicorn DPSRPKTechClub.wsgi
