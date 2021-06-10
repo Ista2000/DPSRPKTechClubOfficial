@@ -1,5 +1,5 @@
 channels
-Django==2.1.5
+Django==2.2.24
 channels_redis
 django-bootstrap3
 dj-database-url==0.5.0
